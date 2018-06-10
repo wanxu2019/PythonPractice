@@ -171,7 +171,7 @@ def game_loop():
                 pygame.quit()
                 sys.exit()
             pygame.display.update()
-        gevent.sleep(1)
+        gevent.sleep(0)
     pass
 
 
@@ -224,22 +224,42 @@ def my_demo():
     # test()
     # 初始矩阵
     table = [
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
-        [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
-        [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
-        [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0],
+        [0, TYPE_BARRIER, 0,            0, 0, TYPE_BARRIER, 0, 0],
+        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+        [0,            0, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0,            0, 0, 0],
     ]
+    # table = [
+    #     [0, TYPE_BARRIER,            0, TYPE_BARRIER,            0,            0, TYPE_BARRIER, 0],
+    #     [0, TYPE_BARRIER,            0, TYPE_BARRIER,            0, TYPE_BARRIER, TYPE_BARRIER, 0],
+    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, 0],
+    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER,            0, 0],
+    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, 0],
+    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER,            0, 0],
+    #     [0,            0, TYPE_BARRIER, TYPE_BARRIER,            0, TYPE_BARRIER, TYPE_BARRIER, 0],
+    #     [0, TYPE_BARRIER, TYPE_BARRIER,            0,            0, TYPE_BARRIER,            0, 0],
+    # ]
+    # table = [
+    #     [0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
+    #     [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
+    #     [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
+    #     [0, 0, 0, 0, TYPE_BARRIER, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0],
+    #     [0, 0, 0, 0, 0, 0, 0, 0],
+    # ]
 
     def isInTable(a):
         if a.x < 0 or a.y < 0 or a.x >= len(table[0]) or a.y >= len(table):
             return False
         return True
 
-    start = [3, 2]
+    start = [3, 0]
     end = [3, 7]
     table[start[0]][start[1]] = TYPE_START
     table[end[0]][end[1]] = TYPE_END
@@ -271,14 +291,16 @@ def my_demo():
     startNode.h = calcH(table, startNode, endNode)
     # A-star算法
     searchList.put(startNode)
+    ans=65535
+    time_interval=0.2
     while not searchList.empty():
         t = searchList.get()
         visited[t.x][t.y] = True
         table[t.x][t.y] = TYPE_ROUTE
         show(table)
-        gevent.sleep(1)
+        gevent.sleep(time_interval)
         if t.x == endNode.x and t.y == endNode.y:
-            print "ans=", t.step
+            ans=t.step
             break
         # 搜索临近点
         for dir in dirs:
@@ -293,7 +315,8 @@ def my_demo():
                 searchList.put(newNode)
                 table[newNode.x][newNode.y] = TYPE_SEARCH
                 show(table)
-                gevent.sleep(1)
+                gevent.sleep(time_interval)
+    print "ans=", ans
 
 
 def main():
