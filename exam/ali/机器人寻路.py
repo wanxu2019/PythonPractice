@@ -193,6 +193,8 @@ def my_solution():
         show(arr)
 
     def calcH(table, startNode, endNode):
+        # 退化为广度优先搜索
+        # return 0
         # 简化的曼哈顿函数
         # return (abs(startNode.x - endNode.x) + abs(startNode.y - endNode.y))
         # return (abs(startNode.x - endNode.x) + abs(startNode.y - endNode.y)) * 10
@@ -359,11 +361,11 @@ def my_solution():
                         # newNode.g > routeNode.g的情况
                         print "==="
                         pass
-                        # 优化2：只在新找路径有提升时才放入searchList  # 有效！！！
-                        # searchList.put(newNode)
-                        # table[newNode.x][newNode.y] = TYPE_SEARCH
-                        # show(table)
-                        # gevent.sleep(time_interval)
+                    # 优化2：只在新找路径有提升时才放入searchList  # 有效！！！
+                    # searchList.put(newNode)
+                    # table[newNode.x][newNode.y] = TYPE_SEARCH
+                    # show(table)
+                    # gevent.sleep(time_interval)
                 else:
                     # 如果访问过，啥也不干
                     pass
