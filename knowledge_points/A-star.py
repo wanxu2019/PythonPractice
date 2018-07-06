@@ -223,26 +223,26 @@ def my_demo():
 
     # test()
     # 初始矩阵
-    table = [
-        [0, TYPE_BARRIER, 0,            0, 0, TYPE_BARRIER, 0, 0],
-        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
-        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
-        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
-        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
-        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
-        [0,            0, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
-        [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0,            0, 0, 0],
-    ]
     # table = [
-    #     [0, TYPE_BARRIER,            0, TYPE_BARRIER,            0,            0, TYPE_BARRIER, 0],
-    #     [0, TYPE_BARRIER,            0, TYPE_BARRIER,            0, TYPE_BARRIER, TYPE_BARRIER, 0],
-    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, 0],
-    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER,            0, 0],
-    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, 0],
-    #     [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER,            0, 0],
-    #     [0,            0, TYPE_BARRIER, TYPE_BARRIER,            0, TYPE_BARRIER, TYPE_BARRIER, 0],
-    #     [0, TYPE_BARRIER, TYPE_BARRIER,            0,            0, TYPE_BARRIER,            0, 0],
+    #     [0, TYPE_BARRIER, 0,            0, 0, TYPE_BARRIER, 0, 0],
+    #     [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+    #     [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+    #     [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+    #     [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+    #     [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+    #     [0,            0, 0, TYPE_BARRIER, 0, TYPE_BARRIER, 0, 0],
+    #     [0, TYPE_BARRIER, 0, TYPE_BARRIER, 0,            0, 0, 0],
     # ]
+    table = [
+        [0, TYPE_BARRIER,            0, TYPE_BARRIER,            0,            0, TYPE_BARRIER, 0],
+        [0, TYPE_BARRIER,            0, TYPE_BARRIER,            0, TYPE_BARRIER, TYPE_BARRIER, 0],
+        [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, 0],
+        [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER,            0, 0],
+        [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, 0],
+        [0, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER, TYPE_BARRIER,            0, 0],
+        [0,            0, TYPE_BARRIER, TYPE_BARRIER,            0, TYPE_BARRIER, TYPE_BARRIER, 0],
+        [0, TYPE_BARRIER, TYPE_BARRIER,            0,            0, TYPE_BARRIER,            0, 0],
+    ]
     # table = [
     #     [0, 0, 0, 0, 0, 0, 0, 0],
     #     [0, 0, 0, 0, 0, 0, 0, 0],
