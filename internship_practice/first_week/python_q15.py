@@ -116,16 +116,16 @@ def a_star():
                         previous_node.parent_y = current_node.y
                     pass
 
-    def f(node):
-        if node:
-            return (node.parent_x, node.parent_y)
+    def extract_parent(_node):
+        if _node:
+            return _node.parent_x, _node.parent_y
         return None
 
-    def printNodeMap(node_map):
-        for i in range(len(node_map)):
-            print(node_map[i])
+    def print_node_map(_node_map):
+        for _i in range(len(_node_map)):
+            print(_node_map[_i])
 
-    # printNodeMap(map(lambda arr: map(f, arr), node_map))
+    print_node_map(map(lambda arr: map(extract_parent, arr), node_map))
     node_list = []
     node = node_map[x2][y2]
     while node:
@@ -135,7 +135,6 @@ def a_star():
         else:
             node = None
     node_list.reverse()
-    # print("Road=%s" % map(lambda node: (node.x+1, node.y+1), node_list))
     # print "end_node:", (x2, y2)
     return node_list
 

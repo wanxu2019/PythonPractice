@@ -1,2 +1,8 @@
 .idea/
-*py[][Dcdo][D[D[D[D[D[D[D.[D[Cp[2~y[cdo]
+*/.idea/
+*.pyc
+*.pyo
+*.pyd
+*/build/
+*/node_modules/
+data/large_size/
