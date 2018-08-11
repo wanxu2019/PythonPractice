@@ -22,12 +22,38 @@
 
 
 class Solution:
+    def isLegal(self, s):
+        if not s:
+            return False
+        # 第一位字符的取值只能为+,-,0-9
+        # 第二位及以后的字符取值只能为0-9
+        import re
+        pattern = re.compile(r"^[0-9+-]?[0-9]*$")
+        if not pattern.match(s):
+            return False
+        return True
+
     def StrToInt(self, s):
         # write code here
-        pass
+        if not self.isLegal(s):
+            return 0
+        value = 0
+        sign = 1
+        if s[0] == '+':
+            s = s[1:]
+        elif s[0] == '-':
+            sign = -1
+            s = s[1:]
+        for ch in s:
+            value = value * 10 + ord(ch) - ord("0")
+        return value * sign
 
 
 def main():
+    print(Solution().StrToInt("+2147483647"))
+    print(Solution().StrToInt("-2147483647"))
+    print(Solution().StrToInt("1a33"))
+    print(Solution().StrToInt("133+"))
     pass
 
 
