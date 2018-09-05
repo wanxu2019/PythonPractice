@@ -8,15 +8,7 @@
 
 while True:
     try:
-        s = raw_input()
+        subs = raw_input()
 
     except Exception,e:
         break
-
-
-def main():
-    pass
-
-
-if __name__ == '__main__':
-    main()
