@@ -70,8 +70,8 @@ visited = [[False for j in range(8)] for i in range(8)]
 # 起点(x1,y1),终点(x2,y2),最少移动次数ans
 x1 = 0
 y1 = 0
-x2 = 0
-y2 = 0
+x2 = 7
+y2 = 7
 ans = 0
 # 8个移动方向
 dirs = [
@@ -127,7 +127,7 @@ def Astar():
             if isInTable(s) and not visited[s.x][s.y]:
                 s.g = t.g + 23
                 s.h = heuristic(s)
-                s.f = s.g + s.h
+                # s.f = s.g + s.h
                 s.step = t.step + 1
                 que.put(s)
 
@@ -146,7 +146,7 @@ def demo1():
         k.y = y1
         k.g = k.step = 0
         k.h = heuristic(k)
-        k.f = k.g + k.h
+        # k.f = k.g + k.h
         while not que.empty():
             que.get()
         que.put(k)
@@ -320,10 +320,11 @@ def my_demo():
 
 
 def main():
-    gevent.joinall([
-        gevent.spawn(game_loop),
-        gevent.spawn_later(1, my_demo)
-    ])
+    # gevent.joinall([
+    #     gevent.spawn(game_loop),
+    #     gevent.spawn_later(1, my_demo)
+    # ])
+    demo1()
     pass
 
 
