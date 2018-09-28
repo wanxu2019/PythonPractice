@@ -38,13 +38,18 @@ class Solution:
 
         while len(nums) < index - 1:
             max_num = nums[-1]
+            # 初始值为末尾值的二倍
             new_value = max_num * 2
             import math
+            # 二分查找结束位置
+            # 其实也可以不用先找出来，一个一个往后看，超出了直接break即可
             stop_index = binary_search(nums, math.sqrt(nums[-1])) + 1
             for i in range(0, stop_index + 1):
                 # 二分查找找出另一个因子位置
+                # 可能不能完全整除，找到的是比较小的一个
                 r_num = max_num / nums[i]
                 l_index = binary_search(nums, r_num)
+                # 往后推移一个考察
                 value = nums[i] * nums[l_index + 1]
                 if value < new_value:
                     new_value = value
