@@ -31,7 +31,6 @@ def main():
         [1, 0, 0, 0, 0, 0, 0, 2, 4, 8],
         [1, 0, 2, 2, 2, 3, 0, 0, 9, 0],
         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-
     ]
     disvisited = [[True for j in range(cols)] for i in range(rows)]
     min_ = sys.maxint
