@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # @Time    : 2018/11/9 11:21
 # @Author  : Json Wan
-# @Description : 
+# @Description : 链表拆分、反转、合并
 # @File    : 补招1.py
 
 
