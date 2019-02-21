@@ -25,14 +25,15 @@ def get_max_depth(root):
 # 非递归解法
 def get_max_depth_non_recursive(root):
     from Queue import Queue
-    que=Queue()
+    que = Queue()
     que.put(root)
-    depth=0
+    depth = 0
+    # 注意：队列里只保存一层的节点，每次出队都把上一层的节点全部出掉
     while not que.empty():
-        depth+=1
-        size=que.qsize()
+        depth += 1
+        size = que.qsize()
         for i in range(size):
-            node=que.get()
+            node = que.get()
             print node.val,
             if node.left:
                 que.put(node.left)
